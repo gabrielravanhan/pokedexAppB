@@ -7,7 +7,8 @@ import { PokemonService } from '../services/pokemon.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  constructor(public pokemonService: PokemonService) {}
+
+  constructor(public pokemonService: PokemonService) { }
 
   ngOnInit() {
     this.pokemonService.buscarTodosPokemon().subscribe((dados) => {

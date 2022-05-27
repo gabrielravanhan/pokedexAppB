@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class PokemonService {
+
   public listaPokemon = [];
 
   private url = 'https://pokeapi.co/api/v2/';

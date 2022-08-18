@@ -4,19 +4,26 @@
   <ion-grid>
     <ion-row>
       <ion-col size-xs="12" size-sm="6" *ngFor="let pokemon of listaPokemon">
-        <ion-card color="electric">
+        <ion-card [color]="pokemon.types[0].type.name">
           <ion-card-header>
-            <ion-card-subtitle class="ion-text-end">#025</ion-card-subtitle>
+            <ion-card-subtitle class="ion-text-end">
+              #{{ pokemon.id }}
+            </ion-card-subtitle>
             <ion-card-title>{{ pokemon.name | titlecase }}</ion-card-title>
           </ion-card-header>
           <ion-card-content class="flex">
             <span class="ion-text-center">
-              <ion-badge color="electric">Electric</ion-badge>
+              <ion-badge
+                color="electric"
+                *ngFor="let type of pokemon.types"
+                [color]="type.type.name"
+              >
+                {{ type.type.name }}
+              </ion-badge>
             </span>
             <img
               class="ion-float-right"
-              src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png"
-              alt=""
+              [src]="'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/'+ pokemon.id.toString().padStart(3, '0') +'.png'"
             />
           </ion-card-content>
         </ion-card>
